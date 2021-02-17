@@ -1,0 +1,15 @@
+F:\C# zadania uczelnia i kursy\ProjektDobraNutka\DobraNutka\DobraNutkaApp\bin\Debug\DobraNutkaApp.exe.config
+F:\C# zadania uczelnia i kursy\ProjektDobraNutka\DobraNutka\DobraNutkaApp\bin\Debug\DobraNutkaApp.exe
+F:\C# zadania uczelnia i kursy\ProjektDobraNutka\DobraNutka\DobraNutkaApp\bin\Debug\DobraNutkaApp.pdb
+F:\C# zadania uczelnia i kursy\ProjektDobraNutka\DobraNutka\DobraNutkaApp\obj\Debug\DobraNutkaApp.csprojAssemblyReference.cache
+F:\C# zadania uczelnia i kursy\ProjektDobraNutka\DobraNutka\DobraNutkaApp\obj\Debug\MainWindow.g.cs
+F:\C# zadania uczelnia i kursy\ProjektDobraNutka\DobraNutka\DobraNutkaApp\obj\Debug\App.g.cs
+F:\C# zadania uczelnia i kursy\ProjektDobraNutka\DobraNutka\DobraNutkaApp\obj\Debug\DobraNutkaApp_MarkupCompile.cache
+F:\C# zadania uczelnia i kursy\ProjektDobraNutka\DobraNutka\DobraNutkaApp\obj\Debug\DobraNutkaApp_MarkupCompile.lref
+F:\C# zadania uczelnia i kursy\ProjektDobraNutka\DobraNutka\DobraNutkaApp\obj\Debug\MainWindow.baml
+F:\C# zadania uczelnia i kursy\ProjektDobraNutka\DobraNutka\DobraNutkaApp\obj\Debug\DobraNutkaApp.g.resources
+F:\C# zadania uczelnia i kursy\ProjektDobraNutka\DobraNutka\DobraNutkaApp\obj\Debug\DobraNutkaApp.Properties.Resources.resources
+F:\C# zadania uczelnia i kursy\ProjektDobraNutka\DobraNutka\DobraNutkaApp\obj\Debug\DobraNutkaApp.csproj.GenerateResource.cache
+F:\C# zadania uczelnia i kursy\ProjektDobraNutka\DobraNutka\DobraNutkaApp\obj\Debug\DobraNutkaApp.csproj.CoreCompileInputs.cache
+F:\C# zadania uczelnia i kursy\ProjektDobraNutka\DobraNutka\DobraNutkaApp\obj\Debug\DobraNutkaApp.exe
+F:\C# zadania uczelnia i kursy\ProjektDobraNutka\DobraNutka\DobraNutkaApp\obj\Debug\DobraNutkaApp.pdb

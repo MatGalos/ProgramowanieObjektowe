@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31005.135
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DobraNutkaApp", "DobraNutkaApp\DobraNutkaApp.csproj", "{F8D8166A-FF45-43A9-893E-A1E8C1C76A6C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DobraNutkaLibrary", "DobraNutkaLibrary\DobraNutkaLibrary.csproj", "{1F36F5A3-4597-466A-8D28-476A6CEC968F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F8D8166A-FF45-43A9-893E-A1E8C1C76A6C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F8D8166A-FF45-43A9-893E-A1E8C1C76A6C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F8D8166A-FF45-43A9-893E-A1E8C1C76A6C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F8D8166A-FF45-43A9-893E-A1E8C1C76A6C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1F36F5A3-4597-466A-8D28-476A6CEC968F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1F36F5A3-4597-466A-8D28-476A6CEC968F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1F36F5A3-4597-466A-8D28-476A6CEC968F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1F36F5A3-4597-466A-8D28-476A6CEC968F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {41B20F0A-7F0F-4B20-B757-F9625E7E32C9}
+	EndGlobalSection
+EndGlobal
