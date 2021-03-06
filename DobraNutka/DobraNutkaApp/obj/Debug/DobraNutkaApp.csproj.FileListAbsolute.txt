@@ -13,3 +13,9 @@ F:\C# zadania uczelnia i kursy\ProjektDobraNutka\DobraNutka\DobraNutkaApp\obj\De
 F:\C# zadania uczelnia i kursy\ProjektDobraNutka\DobraNutka\DobraNutkaApp\obj\Debug\DobraNutkaApp.csproj.CoreCompileInputs.cache
 F:\C# zadania uczelnia i kursy\ProjektDobraNutka\DobraNutka\DobraNutkaApp\obj\Debug\DobraNutkaApp.exe
 F:\C# zadania uczelnia i kursy\ProjektDobraNutka\DobraNutka\DobraNutkaApp\obj\Debug\DobraNutkaApp.pdb
+F:\C# zadania uczelnia i kursy\ProjektDobraNutka\DobraNutka\DobraNutkaApp\bin\Debug\EntityFramework.dll
+F:\C# zadania uczelnia i kursy\ProjektDobraNutka\DobraNutka\DobraNutkaApp\bin\Debug\EntityFramework.SqlServer.dll
+F:\C# zadania uczelnia i kursy\ProjektDobraNutka\DobraNutka\DobraNutkaApp\bin\Debug\EntityFramework.xml
+F:\C# zadania uczelnia i kursy\ProjektDobraNutka\DobraNutka\DobraNutkaApp\bin\Debug\EntityFramework.SqlServer.xml
+F:\C# zadania uczelnia i kursy\ProjektDobraNutka\DobraNutka\DobraNutkaApp\obj\Debug\DobraNutkaApp_Content.g.cs
+F:\C# zadania uczelnia i kursy\ProjektDobraNutka\DobraNutka\DobraNutkaApp\obj\Debug\DobraNutkaApp.csproj.CopyComplete

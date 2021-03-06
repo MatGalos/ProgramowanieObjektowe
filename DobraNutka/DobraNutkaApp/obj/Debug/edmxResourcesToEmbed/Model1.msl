@@ -1,0 +1,182 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="dobra_nutkaModelStoreContainer" CdmEntityContainer="dobra_nutkaEntities">
+    <EntitySetMapping Name="Adresses">
+      <EntityTypeMapping TypeName="dobra_nutkaModel.Adresses">
+        <MappingFragment StoreEntitySet="Adresses">
+          <ScalarProperty Name="address_id" ColumnName="address_id" />
+          <ScalarProperty Name="street" ColumnName="street" />
+          <ScalarProperty Name="street_number" ColumnName="street_number" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Albums">
+      <EntityTypeMapping TypeName="dobra_nutkaModel.Albums">
+        <MappingFragment StoreEntitySet="Albums">
+          <ScalarProperty Name="album_id" ColumnName="album_id" />
+          <ScalarProperty Name="album_title" ColumnName="album_title" />
+          <ScalarProperty Name="artist_id" ColumnName="artist_id" />
+          <ScalarProperty Name="genre_id" ColumnName="genre_id" />
+          <ScalarProperty Name="release_date" ColumnName="release_date" />
+          <ScalarProperty Name="format_id" ColumnName="format_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Artists">
+      <EntityTypeMapping TypeName="dobra_nutkaModel.Artists">
+        <MappingFragment StoreEntitySet="Artists">
+          <ScalarProperty Name="artist_id" ColumnName="artist_id" />
+          <ScalarProperty Name="artist_name" ColumnName="artist_name" />
+          <ScalarProperty Name="artist_date_of_birth" ColumnName="artist_date_of_birth" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Clients">
+      <EntityTypeMapping TypeName="dobra_nutkaModel.Clients">
+        <MappingFragment StoreEntitySet="Clients">
+          <ScalarProperty Name="client_id" ColumnName="client_id" />
+          <ScalarProperty Name="client_first_name" ColumnName="client_first_name" />
+          <ScalarProperty Name="client_last_name" ColumnName="client_last_name" />
+          <ScalarProperty Name="client_email" ColumnName="client_email" />
+          <ScalarProperty Name="client_date_of_birth" ColumnName="client_date_of_birth" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Employees">
+      <EntityTypeMapping TypeName="dobra_nutkaModel.Employees">
+        <MappingFragment StoreEntitySet="Employees">
+          <ScalarProperty Name="employee_id" ColumnName="employee_id" />
+          <ScalarProperty Name="employee_first_name" ColumnName="employee_first_name" />
+          <ScalarProperty Name="employee_last_name" ColumnName="employee_last_name" />
+          <ScalarProperty Name="location_id" ColumnName="location_id" />
+          <ScalarProperty Name="employee_date_of_birth" ColumnName="employee_date_of_birth" />
+          <ScalarProperty Name="position_id" ColumnName="position_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Formats">
+      <EntityTypeMapping TypeName="dobra_nutkaModel.Formats">
+        <MappingFragment StoreEntitySet="Formats">
+          <ScalarProperty Name="format_id" ColumnName="format_id" />
+          <ScalarProperty Name="format_name" ColumnName="format_name" />
+          <ScalarProperty Name="format_price" ColumnName="format_price" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Genres">
+      <EntityTypeMapping TypeName="dobra_nutkaModel.Genres">
+        <MappingFragment StoreEntitySet="Genres">
+          <ScalarProperty Name="genre_id" ColumnName="genre_id" />
+          <ScalarProperty Name="genre_name" ColumnName="genre_name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Locations">
+      <EntityTypeMapping TypeName="dobra_nutkaModel.Locations">
+        <MappingFragment StoreEntitySet="Locations">
+          <ScalarProperty Name="location_id" ColumnName="location_id" />
+          <ScalarProperty Name="city" ColumnName="city" />
+          <ScalarProperty Name="address_id" ColumnName="address_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Orders">
+      <EntityTypeMapping TypeName="dobra_nutkaModel.Orders">
+        <MappingFragment StoreEntitySet="Orders">
+          <ScalarProperty Name="order_id" ColumnName="order_id" />
+          <ScalarProperty Name="client_id" ColumnName="client_id" />
+          <ScalarProperty Name="album_id" ColumnName="album_id" />
+          <ScalarProperty Name="employee_id" ColumnName="employee_id" />
+          <ScalarProperty Name="location_id" ColumnName="location_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Positions">
+      <EntityTypeMapping TypeName="dobra_nutkaModel.Positions">
+        <MappingFragment StoreEntitySet="Positions">
+          <ScalarProperty Name="position_id" ColumnName="position_id" />
+          <ScalarProperty Name="position_name" ColumnName="position_name" />
+          <ScalarProperty Name="salary" ColumnName="salary" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="addArtist" FunctionName="dobra_nutkaModel.Store.addArtist" />
+    <FunctionImportMapping FunctionImportName="addClients" FunctionName="dobra_nutkaModel.Store.addClients" />
+    <FunctionImportMapping FunctionImportName="addEmployee" FunctionName="dobra_nutkaModel.Store.addEmployee" />
+    <FunctionImportMapping FunctionImportName="addGenre" FunctionName="dobra_nutkaModel.Store.addGenre" />
+    <FunctionImportMapping FunctionImportName="addMusicRecord" FunctionName="dobra_nutkaModel.Store.addMusicRecord" />
+    <FunctionImportMapping FunctionImportName="addOrder" FunctionName="dobra_nutkaModel.Store.addOrder" />
+    <FunctionImportMapping FunctionImportName="removeEmployee" FunctionName="dobra_nutkaModel.Store.removeEmployee" />
+    <FunctionImportMapping FunctionImportName="removeMusicRecord" FunctionName="dobra_nutkaModel.Store.removeMusicRecord" />
+    <FunctionImportMapping FunctionImportName="retMusicRecord" FunctionName="dobra_nutkaModel.Store.retMusicRecord">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="dobra_nutkaModel.retMusicRecord_Result">
+          <ScalarProperty Name="album_id" ColumnName="album_id" />
+          <ScalarProperty Name="album_title" ColumnName="album_title" />
+          <ScalarProperty Name="artist_id" ColumnName="artist_id" />
+          <ScalarProperty Name="genre_id" ColumnName="genre_id" />
+          <ScalarProperty Name="release_date" ColumnName="release_date" />
+          <ScalarProperty Name="format_id" ColumnName="format_id" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="showArtist" FunctionName="dobra_nutkaModel.Store.showArtist">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="dobra_nutkaModel.showArtist_Result">
+          <ScalarProperty Name="artist_id" ColumnName="artist_id" />
+          <ScalarProperty Name="artist_name" ColumnName="artist_name" />
+          <ScalarProperty Name="artist_date_of_birth" ColumnName="artist_date_of_birth" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="showClients" FunctionName="dobra_nutkaModel.Store.showClients">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="dobra_nutkaModel.showClients_Result">
+          <ScalarProperty Name="client_id" ColumnName="client_id" />
+          <ScalarProperty Name="client_first_name" ColumnName="client_first_name" />
+          <ScalarProperty Name="client_last_name" ColumnName="client_last_name" />
+          <ScalarProperty Name="client_email" ColumnName="client_email" />
+          <ScalarProperty Name="client_date_of_birth" ColumnName="client_date_of_birth" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="showGenres" FunctionName="dobra_nutkaModel.Store.showGenres">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="dobra_nutkaModel.showGenres_Result">
+          <ScalarProperty Name="genre_id" ColumnName="genre_id" />
+          <ScalarProperty Name="genre_name" ColumnName="genre_name" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="showLocations" FunctionName="dobra_nutkaModel.Store.showLocations">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="dobra_nutkaModel.showLocations_Result">
+          <ScalarProperty Name="location_id" ColumnName="location_id" />
+          <ScalarProperty Name="city" ColumnName="city" />
+          <ScalarProperty Name="address_id" ColumnName="address_id" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="showOrder" FunctionName="dobra_nutkaModel.Store.showOrder">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="dobra_nutkaModel.showOrder_Result">
+          <ScalarProperty Name="order_id" ColumnName="order_id" />
+          <ScalarProperty Name="client_id" ColumnName="client_id" />
+          <ScalarProperty Name="album_id" ColumnName="album_id" />
+          <ScalarProperty Name="employee_id" ColumnName="employee_id" />
+          <ScalarProperty Name="location_id" ColumnName="location_id" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="showPositions" FunctionName="dobra_nutkaModel.Store.showPositions">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="dobra_nutkaModel.showPositions_Result">
+          <ScalarProperty Name="position_id" ColumnName="position_id" />
+          <ScalarProperty Name="position_name" ColumnName="position_name" />
+          <ScalarProperty Name="salary" ColumnName="salary" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="uptadeMusicRecord" FunctionName="dobra_nutkaModel.Store.uptadeMusicRecord" />
+  </EntityContainerMapping>
+</Mapping>

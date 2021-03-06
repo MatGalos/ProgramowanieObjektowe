@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="b65203f31b3c4ea9b74cf05c3e52f421" Name="Diagram1">
+        <EntityTypeShape EntityType="dobra_nutkaModel.Adresses" Width="1.5" PointX="0.75" PointY="1.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="dobra_nutkaModel.Albums" Width="1.5" PointX="5.25" PointY="9.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="dobra_nutkaModel.Artists" Width="1.5" PointX="3" PointY="8" IsExpanded="true" />
+        <EntityTypeShape EntityType="dobra_nutkaModel.Clients" Width="1.5" PointX="5.25" PointY="14.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="dobra_nutkaModel.Employees" Width="1.5" PointX="5.25" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="dobra_nutkaModel.Formats" Width="1.5" PointX="3" PointY="10.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="dobra_nutkaModel.Genres" Width="1.5" PointX="3" PointY="13.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="dobra_nutkaModel.Locations" Width="1.5" PointX="3" PointY="1.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="dobra_nutkaModel.Orders" Width="1.5" PointX="7.5" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="dobra_nutkaModel.Positions" Width="1.5" PointX="3" PointY="5.5" IsExpanded="true" />
+        <AssociationConnector Association="dobra_nutkaModel.FK__Locations__addre__403A8C7D" ManuallyRouted="false" />
+        <AssociationConnector Association="dobra_nutkaModel.FK_album_id" ManuallyRouted="false" />
+        <AssociationConnector Association="dobra_nutkaModel.FK_artist_id" ManuallyRouted="false" />
+        <AssociationConnector Association="dobra_nutkaModel.FK_format_id" ManuallyRouted="false" />
+        <AssociationConnector Association="dobra_nutkaModel.FK_genre_id" ManuallyRouted="false" />
+        <AssociationConnector Association="dobra_nutkaModel.FK_client_id" ManuallyRouted="false" />
+        <AssociationConnector Association="dobra_nutkaModel.FK_employee_id" ManuallyRouted="false" />
+        <AssociationConnector Association="dobra_nutkaModel.FK_location_id" ManuallyRouted="false" />
+        <AssociationConnector Association="dobra_nutkaModel.FK_position_id" ManuallyRouted="false" />
+        <AssociationConnector Association="dobra_nutkaModel.FK_location_id1" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

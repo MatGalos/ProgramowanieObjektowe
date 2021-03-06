@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "1/sWVoriTEewZFHujkEzhlc6BEPAGbfuXuTpC0iXQYF/wx9PGS5HV5wiY5WL7SD/pD0dlnSO8jV8JzzuA4ub+Q==",
+  "dgSpecHash": "d7TUd3cUPwUoezwIWzTLh+vEzHv8qi/7ebBZFz6J8sDijtiohMETB0QxVMYj2VspnZuYDsL4vbk0dhjVn2BhGg==",
   "success": true,
   "projectFilePath": "F:\\C# zadania uczelnia i kursy\\ProjektDobraNutka\\DobraNutka\\DobraNutkaLibrary\\DobraNutkaLibrary.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\magic\\.nuget\\packages\\entityframework\\6.4.4\\entityframework.6.4.4.nupkg.sha512",
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\netstandard.library\\2.0.3\\netstandard.library.2.0.3.nupkg.sha512"
   ],

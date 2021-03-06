@@ -1,0 +1,914 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="dobra_nutkaModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Adresses">
+          <Key>
+            <PropertyRef Name="address_id" />
+          </Key>
+          <Property Name="address_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="street" Type="varchar" MaxLength="40" />
+          <Property Name="street_number" Type="int" />
+        </EntityType>
+        <EntityType Name="Albums">
+          <Key>
+            <PropertyRef Name="album_id" />
+          </Key>
+          <Property Name="album_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="album_title" Type="varchar" MaxLength="60" />
+          <Property Name="artist_id" Type="int" />
+          <Property Name="genre_id" Type="int" />
+          <Property Name="release_date" Type="date" />
+          <Property Name="format_id" Type="int" />
+        </EntityType>
+        <EntityType Name="Artists">
+          <Key>
+            <PropertyRef Name="artist_id" />
+          </Key>
+          <Property Name="artist_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="artist_name" Type="varchar" MaxLength="60" />
+          <Property Name="artist_date_of_birth" Type="date" />
+        </EntityType>
+        <EntityType Name="Clients">
+          <Key>
+            <PropertyRef Name="client_id" />
+          </Key>
+          <Property Name="client_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="client_first_name" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="client_last_name" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="client_email" Type="varchar" MaxLength="254" Nullable="false" />
+          <Property Name="client_date_of_birth" Type="date" />
+        </EntityType>
+        <EntityType Name="Employees">
+          <Key>
+            <PropertyRef Name="employee_id" />
+          </Key>
+          <Property Name="employee_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="employee_first_name" Type="varchar" MaxLength="30" />
+          <Property Name="employee_last_name" Type="varchar" MaxLength="30" />
+          <Property Name="location_id" Type="int" />
+          <Property Name="employee_date_of_birth" Type="date" />
+          <Property Name="position_id" Type="int" />
+        </EntityType>
+        <EntityType Name="Formats">
+          <Key>
+            <PropertyRef Name="format_id" />
+          </Key>
+          <Property Name="format_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="format_name" Type="varchar" MaxLength="20" />
+          <Property Name="format_price" Type="int" />
+        </EntityType>
+        <EntityType Name="Genres">
+          <Key>
+            <PropertyRef Name="genre_id" />
+          </Key>
+          <Property Name="genre_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="genre_name" Type="varchar" MaxLength="60" />
+        </EntityType>
+        <EntityType Name="Locations">
+          <Key>
+            <PropertyRef Name="location_id" />
+          </Key>
+          <Property Name="location_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="city" Type="varchar" MaxLength="30" />
+          <Property Name="address_id" Type="int" />
+        </EntityType>
+        <EntityType Name="Orders">
+          <Key>
+            <PropertyRef Name="order_id" />
+          </Key>
+          <Property Name="order_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="client_id" Type="int" />
+          <Property Name="album_id" Type="int" />
+          <Property Name="employee_id" Type="int" />
+          <Property Name="location_id" Type="int" />
+        </EntityType>
+        <EntityType Name="Positions">
+          <Key>
+            <PropertyRef Name="position_id" />
+          </Key>
+          <Property Name="position_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="position_name" Type="varchar" MaxLength="20" />
+          <Property Name="salary" Type="int" />
+        </EntityType>
+        <Association Name="FK__Locations__addre__403A8C7D">
+          <End Role="Adresses" Type="Self.Adresses" Multiplicity="0..1" />
+          <End Role="Locations" Type="Self.Locations" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Adresses">
+              <PropertyRef Name="address_id" />
+            </Principal>
+            <Dependent Role="Locations">
+              <PropertyRef Name="address_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_album_id">
+          <End Role="Albums" Type="Self.Albums" Multiplicity="0..1" />
+          <End Role="Orders" Type="Self.Orders" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Albums">
+              <PropertyRef Name="album_id" />
+            </Principal>
+            <Dependent Role="Orders">
+              <PropertyRef Name="album_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_artist_id">
+          <End Role="Artists" Type="Self.Artists" Multiplicity="0..1" />
+          <End Role="Albums" Type="Self.Albums" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Artists">
+              <PropertyRef Name="artist_id" />
+            </Principal>
+            <Dependent Role="Albums">
+              <PropertyRef Name="artist_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_client_id">
+          <End Role="Clients" Type="Self.Clients" Multiplicity="0..1" />
+          <End Role="Orders" Type="Self.Orders" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Clients">
+              <PropertyRef Name="client_id" />
+            </Principal>
+            <Dependent Role="Orders">
+              <PropertyRef Name="client_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_employee_id">
+          <End Role="Employees" Type="Self.Employees" Multiplicity="0..1" />
+          <End Role="Orders" Type="Self.Orders" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employees">
+              <PropertyRef Name="employee_id" />
+            </Principal>
+            <Dependent Role="Orders">
+              <PropertyRef Name="employee_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_format_id">
+          <End Role="Formats" Type="Self.Formats" Multiplicity="0..1" />
+          <End Role="Albums" Type="Self.Albums" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Formats">
+              <PropertyRef Name="format_id" />
+            </Principal>
+            <Dependent Role="Albums">
+              <PropertyRef Name="format_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_genre_id">
+          <End Role="Genres" Type="Self.Genres" Multiplicity="0..1" />
+          <End Role="Albums" Type="Self.Albums" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Genres">
+              <PropertyRef Name="genre_id" />
+            </Principal>
+            <Dependent Role="Albums">
+              <PropertyRef Name="genre_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_location_id">
+          <End Role="Locations" Type="Self.Locations" Multiplicity="0..1" />
+          <End Role="Employees" Type="Self.Employees" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Locations">
+              <PropertyRef Name="location_id" />
+            </Principal>
+            <Dependent Role="Employees">
+              <PropertyRef Name="location_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_location_id1">
+          <End Role="Locations" Type="Self.Locations" Multiplicity="0..1" />
+          <End Role="Orders" Type="Self.Orders" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Locations">
+              <PropertyRef Name="location_id" />
+            </Principal>
+            <Dependent Role="Orders">
+              <PropertyRef Name="location_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_position_id">
+          <End Role="Positions" Type="Self.Positions" Multiplicity="0..1" />
+          <End Role="Employees" Type="Self.Employees" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Positions">
+              <PropertyRef Name="position_id" />
+            </Principal>
+            <Dependent Role="Employees">
+              <PropertyRef Name="position_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Function Name="addArtist" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="name" Type="varchar" Mode="In" />
+          <Parameter Name="birthday" Type="date" Mode="In" />
+        </Function>
+        <Function Name="addClients" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="firstName" Type="varchar" Mode="In" />
+          <Parameter Name="lastName" Type="varchar" Mode="In" />
+          <Parameter Name="email" Type="varchar" Mode="In" />
+          <Parameter Name="date" Type="date" Mode="In" />
+        </Function>
+        <Function Name="addEmployee" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="firstName" Type="varchar" Mode="In" />
+          <Parameter Name="lastName" Type="varchar" Mode="In" />
+          <Parameter Name="location" Type="int" Mode="In" />
+          <Parameter Name="date" Type="date" Mode="In" />
+          <Parameter Name="position" Type="int" Mode="In" />
+        </Function>
+        <Function Name="addGenre" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="name" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="addMusicRecord" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Title" Type="varchar" Mode="In" />
+          <Parameter Name="Artist" Type="int" Mode="In" />
+          <Parameter Name="Genre" Type="int" Mode="In" />
+          <Parameter Name="date" Type="date" Mode="In" />
+          <Parameter Name="Format" Type="int" Mode="In" />
+        </Function>
+        <Function Name="addOrder" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="client" Type="int" Mode="In" />
+          <Parameter Name="album" Type="int" Mode="In" />
+          <Parameter Name="employee" Type="int" Mode="In" />
+          <Parameter Name="location" Type="int" Mode="In" />
+        </Function>
+        <Function Name="removeEmployee" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="removeMusicRecord" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="retMusicRecord" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="title" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="showArtist" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="showClients" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="showGenres" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="showLocations" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="showOrder" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="showPositions" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="uptadeMusicRecord" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="id" Type="int" Mode="In" />
+          <Parameter Name="Title" Type="varchar" Mode="In" />
+          <Parameter Name="Artist" Type="int" Mode="In" />
+          <Parameter Name="Genre" Type="int" Mode="In" />
+          <Parameter Name="date" Type="date" Mode="In" />
+          <Parameter Name="Format" Type="int" Mode="In" />
+        </Function>
+        <EntityContainer Name="dobra_nutkaModelStoreContainer">
+          <EntitySet Name="Adresses" EntityType="Self.Adresses" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Albums" EntityType="Self.Albums" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Artists" EntityType="Self.Artists" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Clients" EntityType="Self.Clients" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Employees" EntityType="Self.Employees" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Formats" EntityType="Self.Formats" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Genres" EntityType="Self.Genres" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Locations" EntityType="Self.Locations" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Orders" EntityType="Self.Orders" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Positions" EntityType="Self.Positions" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__Locations__addre__403A8C7D" Association="Self.FK__Locations__addre__403A8C7D">
+            <End Role="Adresses" EntitySet="Adresses" />
+            <End Role="Locations" EntitySet="Locations" />
+          </AssociationSet>
+          <AssociationSet Name="FK_album_id" Association="Self.FK_album_id">
+            <End Role="Albums" EntitySet="Albums" />
+            <End Role="Orders" EntitySet="Orders" />
+          </AssociationSet>
+          <AssociationSet Name="FK_artist_id" Association="Self.FK_artist_id">
+            <End Role="Artists" EntitySet="Artists" />
+            <End Role="Albums" EntitySet="Albums" />
+          </AssociationSet>
+          <AssociationSet Name="FK_client_id" Association="Self.FK_client_id">
+            <End Role="Clients" EntitySet="Clients" />
+            <End Role="Orders" EntitySet="Orders" />
+          </AssociationSet>
+          <AssociationSet Name="FK_employee_id" Association="Self.FK_employee_id">
+            <End Role="Employees" EntitySet="Employees" />
+            <End Role="Orders" EntitySet="Orders" />
+          </AssociationSet>
+          <AssociationSet Name="FK_format_id" Association="Self.FK_format_id">
+            <End Role="Formats" EntitySet="Formats" />
+            <End Role="Albums" EntitySet="Albums" />
+          </AssociationSet>
+          <AssociationSet Name="FK_genre_id" Association="Self.FK_genre_id">
+            <End Role="Genres" EntitySet="Genres" />
+            <End Role="Albums" EntitySet="Albums" />
+          </AssociationSet>
+          <AssociationSet Name="FK_location_id" Association="Self.FK_location_id">
+            <End Role="Locations" EntitySet="Locations" />
+            <End Role="Employees" EntitySet="Employees" />
+          </AssociationSet>
+          <AssociationSet Name="FK_location_id1" Association="Self.FK_location_id1">
+            <End Role="Locations" EntitySet="Locations" />
+            <End Role="Orders" EntitySet="Orders" />
+          </AssociationSet>
+          <AssociationSet Name="FK_position_id" Association="Self.FK_position_id">
+            <End Role="Positions" EntitySet="Positions" />
+            <End Role="Employees" EntitySet="Employees" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="dobra_nutkaModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Adresses">
+          <Key>
+            <PropertyRef Name="address_id" />
+          </Key>
+          <Property Name="address_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="street" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="street_number" Type="Int32" />
+          <NavigationProperty Name="Locations" Relationship="Self.FK__Locations__addre__403A8C7D" FromRole="Adresses" ToRole="Locations" />
+        </EntityType>
+        <EntityType Name="Albums">
+          <Key>
+            <PropertyRef Name="album_id" />
+          </Key>
+          <Property Name="album_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="album_title" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
+          <Property Name="artist_id" Type="Int32" />
+          <Property Name="genre_id" Type="Int32" />
+          <Property Name="release_date" Type="DateTime" Precision="0" />
+          <Property Name="format_id" Type="Int32" />
+          <NavigationProperty Name="Orders" Relationship="Self.FK_album_id" FromRole="Albums" ToRole="Orders" />
+          <NavigationProperty Name="Artists" Relationship="Self.FK_artist_id" FromRole="Albums" ToRole="Artists" />
+          <NavigationProperty Name="Formats" Relationship="Self.FK_format_id" FromRole="Albums" ToRole="Formats" />
+          <NavigationProperty Name="Genres" Relationship="Self.FK_genre_id" FromRole="Albums" ToRole="Genres" />
+        </EntityType>
+        <EntityType Name="Artists">
+          <Key>
+            <PropertyRef Name="artist_id" />
+          </Key>
+          <Property Name="artist_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="artist_name" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
+          <Property Name="artist_date_of_birth" Type="DateTime" Precision="0" />
+          <NavigationProperty Name="Albums" Relationship="Self.FK_artist_id" FromRole="Artists" ToRole="Albums" />
+        </EntityType>
+        <EntityType Name="Clients">
+          <Key>
+            <PropertyRef Name="client_id" />
+          </Key>
+          <Property Name="client_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="client_first_name" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="client_last_name" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="client_email" Type="String" MaxLength="254" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="client_date_of_birth" Type="DateTime" Precision="0" />
+          <NavigationProperty Name="Orders" Relationship="Self.FK_client_id" FromRole="Clients" ToRole="Orders" />
+        </EntityType>
+        <EntityType Name="Employees">
+          <Key>
+            <PropertyRef Name="employee_id" />
+          </Key>
+          <Property Name="employee_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="employee_first_name" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="employee_last_name" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="location_id" Type="Int32" />
+          <Property Name="employee_date_of_birth" Type="DateTime" Precision="0" />
+          <Property Name="position_id" Type="Int32" />
+          <NavigationProperty Name="Orders" Relationship="Self.FK_employee_id" FromRole="Employees" ToRole="Orders" />
+          <NavigationProperty Name="Locations" Relationship="Self.FK_location_id" FromRole="Employees" ToRole="Locations" />
+          <NavigationProperty Name="Positions" Relationship="Self.FK_position_id" FromRole="Employees" ToRole="Positions" />
+        </EntityType>
+        <EntityType Name="Formats">
+          <Key>
+            <PropertyRef Name="format_id" />
+          </Key>
+          <Property Name="format_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="format_name" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="format_price" Type="Int32" />
+          <NavigationProperty Name="Albums" Relationship="Self.FK_format_id" FromRole="Formats" ToRole="Albums" />
+        </EntityType>
+        <EntityType Name="Genres">
+          <Key>
+            <PropertyRef Name="genre_id" />
+          </Key>
+          <Property Name="genre_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="genre_name" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Albums" Relationship="Self.FK_genre_id" FromRole="Genres" ToRole="Albums" />
+        </EntityType>
+        <EntityType Name="Locations">
+          <Key>
+            <PropertyRef Name="location_id" />
+          </Key>
+          <Property Name="location_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="city" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="address_id" Type="Int32" />
+          <NavigationProperty Name="Adresses" Relationship="Self.FK__Locations__addre__403A8C7D" FromRole="Locations" ToRole="Adresses" />
+          <NavigationProperty Name="Employees" Relationship="Self.FK_location_id" FromRole="Locations" ToRole="Employees" />
+          <NavigationProperty Name="Orders" Relationship="Self.FK_location_id1" FromRole="Locations" ToRole="Orders" />
+        </EntityType>
+        <EntityType Name="Orders">
+          <Key>
+            <PropertyRef Name="order_id" />
+          </Key>
+          <Property Name="order_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="client_id" Type="Int32" />
+          <Property Name="album_id" Type="Int32" />
+          <Property Name="employee_id" Type="Int32" />
+          <Property Name="location_id" Type="Int32" />
+          <NavigationProperty Name="Albums" Relationship="Self.FK_album_id" FromRole="Orders" ToRole="Albums" />
+          <NavigationProperty Name="Clients" Relationship="Self.FK_client_id" FromRole="Orders" ToRole="Clients" />
+          <NavigationProperty Name="Employees" Relationship="Self.FK_employee_id" FromRole="Orders" ToRole="Employees" />
+          <NavigationProperty Name="Locations" Relationship="Self.FK_location_id1" FromRole="Orders" ToRole="Locations" />
+        </EntityType>
+        <EntityType Name="Positions">
+          <Key>
+            <PropertyRef Name="position_id" />
+          </Key>
+          <Property Name="position_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="position_name" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="salary" Type="Int32" />
+          <NavigationProperty Name="Employees" Relationship="Self.FK_position_id" FromRole="Positions" ToRole="Employees" />
+        </EntityType>
+        <Association Name="FK__Locations__addre__403A8C7D">
+          <End Role="Adresses" Type="Self.Adresses" Multiplicity="0..1" />
+          <End Role="Locations" Type="Self.Locations" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Adresses">
+              <PropertyRef Name="address_id" />
+            </Principal>
+            <Dependent Role="Locations">
+              <PropertyRef Name="address_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_album_id">
+          <End Role="Albums" Type="Self.Albums" Multiplicity="0..1" />
+          <End Role="Orders" Type="Self.Orders" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Albums">
+              <PropertyRef Name="album_id" />
+            </Principal>
+            <Dependent Role="Orders">
+              <PropertyRef Name="album_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_artist_id">
+          <End Role="Artists" Type="Self.Artists" Multiplicity="0..1" />
+          <End Role="Albums" Type="Self.Albums" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Artists">
+              <PropertyRef Name="artist_id" />
+            </Principal>
+            <Dependent Role="Albums">
+              <PropertyRef Name="artist_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_format_id">
+          <End Role="Formats" Type="Self.Formats" Multiplicity="0..1" />
+          <End Role="Albums" Type="Self.Albums" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Formats">
+              <PropertyRef Name="format_id" />
+            </Principal>
+            <Dependent Role="Albums">
+              <PropertyRef Name="format_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_genre_id">
+          <End Role="Genres" Type="Self.Genres" Multiplicity="0..1" />
+          <End Role="Albums" Type="Self.Albums" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Genres">
+              <PropertyRef Name="genre_id" />
+            </Principal>
+            <Dependent Role="Albums">
+              <PropertyRef Name="genre_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_client_id">
+          <End Role="Clients" Type="Self.Clients" Multiplicity="0..1" />
+          <End Role="Orders" Type="Self.Orders" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Clients">
+              <PropertyRef Name="client_id" />
+            </Principal>
+            <Dependent Role="Orders">
+              <PropertyRef Name="client_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_employee_id">
+          <End Role="Employees" Type="Self.Employees" Multiplicity="0..1" />
+          <End Role="Orders" Type="Self.Orders" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employees">
+              <PropertyRef Name="employee_id" />
+            </Principal>
+            <Dependent Role="Orders">
+              <PropertyRef Name="employee_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_location_id">
+          <End Role="Locations" Type="Self.Locations" Multiplicity="0..1" />
+          <End Role="Employees" Type="Self.Employees" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Locations">
+              <PropertyRef Name="location_id" />
+            </Principal>
+            <Dependent Role="Employees">
+              <PropertyRef Name="location_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_position_id">
+          <End Role="Positions" Type="Self.Positions" Multiplicity="0..1" />
+          <End Role="Employees" Type="Self.Employees" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Positions">
+              <PropertyRef Name="position_id" />
+            </Principal>
+            <Dependent Role="Employees">
+              <PropertyRef Name="position_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_location_id1">
+          <End Role="Locations" Type="Self.Locations" Multiplicity="0..1" />
+          <End Role="Orders" Type="Self.Orders" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Locations">
+              <PropertyRef Name="location_id" />
+            </Principal>
+            <Dependent Role="Orders">
+              <PropertyRef Name="location_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="dobra_nutkaEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Adresses" EntityType="Self.Adresses" />
+          <EntitySet Name="Albums" EntityType="Self.Albums" />
+          <EntitySet Name="Artists" EntityType="Self.Artists" />
+          <EntitySet Name="Clients" EntityType="Self.Clients" />
+          <EntitySet Name="Employees" EntityType="Self.Employees" />
+          <EntitySet Name="Formats" EntityType="Self.Formats" />
+          <EntitySet Name="Genres" EntityType="Self.Genres" />
+          <EntitySet Name="Locations" EntityType="Self.Locations" />
+          <EntitySet Name="Orders" EntityType="Self.Orders" />
+          <EntitySet Name="Positions" EntityType="Self.Positions" />
+          <AssociationSet Name="FK__Locations__addre__403A8C7D" Association="Self.FK__Locations__addre__403A8C7D">
+            <End Role="Adresses" EntitySet="Adresses" />
+            <End Role="Locations" EntitySet="Locations" />
+          </AssociationSet>
+          <AssociationSet Name="FK_album_id" Association="Self.FK_album_id">
+            <End Role="Albums" EntitySet="Albums" />
+            <End Role="Orders" EntitySet="Orders" />
+          </AssociationSet>
+          <AssociationSet Name="FK_artist_id" Association="Self.FK_artist_id">
+            <End Role="Artists" EntitySet="Artists" />
+            <End Role="Albums" EntitySet="Albums" />
+          </AssociationSet>
+          <AssociationSet Name="FK_format_id" Association="Self.FK_format_id">
+            <End Role="Formats" EntitySet="Formats" />
+            <End Role="Albums" EntitySet="Albums" />
+          </AssociationSet>
+          <AssociationSet Name="FK_genre_id" Association="Self.FK_genre_id">
+            <End Role="Genres" EntitySet="Genres" />
+            <End Role="Albums" EntitySet="Albums" />
+          </AssociationSet>
+          <AssociationSet Name="FK_client_id" Association="Self.FK_client_id">
+            <End Role="Clients" EntitySet="Clients" />
+            <End Role="Orders" EntitySet="Orders" />
+          </AssociationSet>
+          <AssociationSet Name="FK_employee_id" Association="Self.FK_employee_id">
+            <End Role="Employees" EntitySet="Employees" />
+            <End Role="Orders" EntitySet="Orders" />
+          </AssociationSet>
+          <AssociationSet Name="FK_location_id" Association="Self.FK_location_id">
+            <End Role="Locations" EntitySet="Locations" />
+            <End Role="Employees" EntitySet="Employees" />
+          </AssociationSet>
+          <AssociationSet Name="FK_position_id" Association="Self.FK_position_id">
+            <End Role="Positions" EntitySet="Positions" />
+            <End Role="Employees" EntitySet="Employees" />
+          </AssociationSet>
+          <AssociationSet Name="FK_location_id1" Association="Self.FK_location_id1">
+            <End Role="Locations" EntitySet="Locations" />
+            <End Role="Orders" EntitySet="Orders" />
+          </AssociationSet>
+          <FunctionImport Name="addArtist">
+            <Parameter Name="name" Mode="In" Type="String" />
+            <Parameter Name="birthday" Mode="In" Type="DateTime" />
+          </FunctionImport>
+          <FunctionImport Name="addClients">
+            <Parameter Name="firstName" Mode="In" Type="String" />
+            <Parameter Name="lastName" Mode="In" Type="String" />
+            <Parameter Name="email" Mode="In" Type="String" />
+            <Parameter Name="date" Mode="In" Type="DateTime" />
+          </FunctionImport>
+          <FunctionImport Name="addEmployee">
+            <Parameter Name="firstName" Mode="In" Type="String" />
+            <Parameter Name="lastName" Mode="In" Type="String" />
+            <Parameter Name="location" Mode="In" Type="Int32" />
+            <Parameter Name="date" Mode="In" Type="DateTime" />
+            <Parameter Name="position" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="addGenre">
+            <Parameter Name="name" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="addMusicRecord">
+            <Parameter Name="Title" Mode="In" Type="String" />
+            <Parameter Name="Artist" Mode="In" Type="Int32" />
+            <Parameter Name="Genre" Mode="In" Type="Int32" />
+            <Parameter Name="date" Mode="In" Type="DateTime" />
+            <Parameter Name="Format" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="addOrder">
+            <Parameter Name="client" Mode="In" Type="Int32" />
+            <Parameter Name="album" Mode="In" Type="Int32" />
+            <Parameter Name="employee" Mode="In" Type="Int32" />
+            <Parameter Name="location" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="removeEmployee">
+            <Parameter Name="id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="removeMusicRecord">
+            <Parameter Name="id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="retMusicRecord" ReturnType="Collection(dobra_nutkaModel.retMusicRecord_Result)">
+            <Parameter Name="title" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="showArtist" ReturnType="Collection(dobra_nutkaModel.showArtist_Result)" />
+          <FunctionImport Name="showClients" ReturnType="Collection(dobra_nutkaModel.showClients_Result)" />
+          <FunctionImport Name="showGenres" ReturnType="Collection(dobra_nutkaModel.showGenres_Result)" />
+          <FunctionImport Name="showLocations" ReturnType="Collection(dobra_nutkaModel.showLocations_Result)" />
+          <FunctionImport Name="showOrder" ReturnType="Collection(dobra_nutkaModel.showOrder_Result)" />
+          <FunctionImport Name="showPositions" ReturnType="Collection(dobra_nutkaModel.showPositions_Result)" />
+          <FunctionImport Name="uptadeMusicRecord">
+            <Parameter Name="id" Mode="In" Type="Int32" />
+            <Parameter Name="Title" Mode="In" Type="String" />
+            <Parameter Name="Artist" Mode="In" Type="Int32" />
+            <Parameter Name="Genre" Mode="In" Type="Int32" />
+            <Parameter Name="date" Mode="In" Type="DateTime" />
+            <Parameter Name="Format" Mode="In" Type="Int32" />
+          </FunctionImport>
+        </EntityContainer>
+        <ComplexType Name="retMusicRecord_Result">
+          <Property Type="Int32" Name="album_id" Nullable="false" />
+          <Property Type="String" Name="album_title" Nullable="true" MaxLength="60" />
+          <Property Type="Int32" Name="artist_id" Nullable="true" />
+          <Property Type="Int32" Name="genre_id" Nullable="true" />
+          <Property Type="DateTime" Name="release_date" Nullable="true" />
+          <Property Type="Int32" Name="format_id" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="showArtist_Result">
+          <Property Type="Int32" Name="artist_id" Nullable="false" />
+          <Property Type="String" Name="artist_name" Nullable="true" MaxLength="60" />
+          <Property Type="DateTime" Name="artist_date_of_birth" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="showClients_Result">
+          <Property Type="Int32" Name="client_id" Nullable="false" />
+          <Property Type="String" Name="client_first_name" Nullable="false" MaxLength="30" />
+          <Property Type="String" Name="client_last_name" Nullable="false" MaxLength="30" />
+          <Property Type="String" Name="client_email" Nullable="false" MaxLength="254" />
+          <Property Type="DateTime" Name="client_date_of_birth" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="showGenres_Result">
+          <Property Type="Int32" Name="genre_id" Nullable="false" />
+          <Property Type="String" Name="genre_name" Nullable="true" MaxLength="60" />
+        </ComplexType>
+        <ComplexType Name="showLocations_Result">
+          <Property Type="Int32" Name="location_id" Nullable="false" />
+          <Property Type="String" Name="city" Nullable="true" MaxLength="30" />
+          <Property Type="Int32" Name="address_id" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="showOrder_Result">
+          <Property Type="Int32" Name="order_id" Nullable="false" />
+          <Property Type="Int32" Name="client_id" Nullable="true" />
+          <Property Type="Int32" Name="album_id" Nullable="true" />
+          <Property Type="Int32" Name="employee_id" Nullable="true" />
+          <Property Type="Int32" Name="location_id" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="showPositions_Result">
+          <Property Type="Int32" Name="position_id" Nullable="false" />
+          <Property Type="String" Name="position_name" Nullable="true" MaxLength="20" />
+          <Property Type="Int32" Name="salary" Nullable="true" />
+        </ComplexType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="dobra_nutkaModelStoreContainer" CdmEntityContainer="dobra_nutkaEntities">
+          <EntitySetMapping Name="Adresses">
+            <EntityTypeMapping TypeName="dobra_nutkaModel.Adresses">
+              <MappingFragment StoreEntitySet="Adresses">
+                <ScalarProperty Name="address_id" ColumnName="address_id" />
+                <ScalarProperty Name="street" ColumnName="street" />
+                <ScalarProperty Name="street_number" ColumnName="street_number" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Albums">
+            <EntityTypeMapping TypeName="dobra_nutkaModel.Albums">
+              <MappingFragment StoreEntitySet="Albums">
+                <ScalarProperty Name="album_id" ColumnName="album_id" />
+                <ScalarProperty Name="album_title" ColumnName="album_title" />
+                <ScalarProperty Name="artist_id" ColumnName="artist_id" />
+                <ScalarProperty Name="genre_id" ColumnName="genre_id" />
+                <ScalarProperty Name="release_date" ColumnName="release_date" />
+                <ScalarProperty Name="format_id" ColumnName="format_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Artists">
+            <EntityTypeMapping TypeName="dobra_nutkaModel.Artists">
+              <MappingFragment StoreEntitySet="Artists">
+                <ScalarProperty Name="artist_id" ColumnName="artist_id" />
+                <ScalarProperty Name="artist_name" ColumnName="artist_name" />
+                <ScalarProperty Name="artist_date_of_birth" ColumnName="artist_date_of_birth" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Clients">
+            <EntityTypeMapping TypeName="dobra_nutkaModel.Clients">
+              <MappingFragment StoreEntitySet="Clients">
+                <ScalarProperty Name="client_id" ColumnName="client_id" />
+                <ScalarProperty Name="client_first_name" ColumnName="client_first_name" />
+                <ScalarProperty Name="client_last_name" ColumnName="client_last_name" />
+                <ScalarProperty Name="client_email" ColumnName="client_email" />
+                <ScalarProperty Name="client_date_of_birth" ColumnName="client_date_of_birth" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Employees">
+            <EntityTypeMapping TypeName="dobra_nutkaModel.Employees">
+              <MappingFragment StoreEntitySet="Employees">
+                <ScalarProperty Name="employee_id" ColumnName="employee_id" />
+                <ScalarProperty Name="employee_first_name" ColumnName="employee_first_name" />
+                <ScalarProperty Name="employee_last_name" ColumnName="employee_last_name" />
+                <ScalarProperty Name="location_id" ColumnName="location_id" />
+                <ScalarProperty Name="employee_date_of_birth" ColumnName="employee_date_of_birth" />
+                <ScalarProperty Name="position_id" ColumnName="position_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Formats">
+            <EntityTypeMapping TypeName="dobra_nutkaModel.Formats">
+              <MappingFragment StoreEntitySet="Formats">
+                <ScalarProperty Name="format_id" ColumnName="format_id" />
+                <ScalarProperty Name="format_name" ColumnName="format_name" />
+                <ScalarProperty Name="format_price" ColumnName="format_price" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Genres">
+            <EntityTypeMapping TypeName="dobra_nutkaModel.Genres">
+              <MappingFragment StoreEntitySet="Genres">
+                <ScalarProperty Name="genre_id" ColumnName="genre_id" />
+                <ScalarProperty Name="genre_name" ColumnName="genre_name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Locations">
+            <EntityTypeMapping TypeName="dobra_nutkaModel.Locations">
+              <MappingFragment StoreEntitySet="Locations">
+                <ScalarProperty Name="location_id" ColumnName="location_id" />
+                <ScalarProperty Name="city" ColumnName="city" />
+                <ScalarProperty Name="address_id" ColumnName="address_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Orders">
+            <EntityTypeMapping TypeName="dobra_nutkaModel.Orders">
+              <MappingFragment StoreEntitySet="Orders">
+                <ScalarProperty Name="order_id" ColumnName="order_id" />
+                <ScalarProperty Name="client_id" ColumnName="client_id" />
+                <ScalarProperty Name="album_id" ColumnName="album_id" />
+                <ScalarProperty Name="employee_id" ColumnName="employee_id" />
+                <ScalarProperty Name="location_id" ColumnName="location_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Positions">
+            <EntityTypeMapping TypeName="dobra_nutkaModel.Positions">
+              <MappingFragment StoreEntitySet="Positions">
+                <ScalarProperty Name="position_id" ColumnName="position_id" />
+                <ScalarProperty Name="position_name" ColumnName="position_name" />
+                <ScalarProperty Name="salary" ColumnName="salary" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="addArtist" FunctionName="dobra_nutkaModel.Store.addArtist" />
+          <FunctionImportMapping FunctionImportName="addClients" FunctionName="dobra_nutkaModel.Store.addClients" />
+          <FunctionImportMapping FunctionImportName="addEmployee" FunctionName="dobra_nutkaModel.Store.addEmployee" />
+          <FunctionImportMapping FunctionImportName="addGenre" FunctionName="dobra_nutkaModel.Store.addGenre" />
+          <FunctionImportMapping FunctionImportName="addMusicRecord" FunctionName="dobra_nutkaModel.Store.addMusicRecord" />
+          <FunctionImportMapping FunctionImportName="addOrder" FunctionName="dobra_nutkaModel.Store.addOrder" />
+          <FunctionImportMapping FunctionImportName="removeEmployee" FunctionName="dobra_nutkaModel.Store.removeEmployee" />
+          <FunctionImportMapping FunctionImportName="removeMusicRecord" FunctionName="dobra_nutkaModel.Store.removeMusicRecord" />
+          <FunctionImportMapping FunctionImportName="retMusicRecord" FunctionName="dobra_nutkaModel.Store.retMusicRecord">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="dobra_nutkaModel.retMusicRecord_Result">
+                <ScalarProperty Name="album_id" ColumnName="album_id" />
+                <ScalarProperty Name="album_title" ColumnName="album_title" />
+                <ScalarProperty Name="artist_id" ColumnName="artist_id" />
+                <ScalarProperty Name="genre_id" ColumnName="genre_id" />
+                <ScalarProperty Name="release_date" ColumnName="release_date" />
+                <ScalarProperty Name="format_id" ColumnName="format_id" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="showArtist" FunctionName="dobra_nutkaModel.Store.showArtist">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="dobra_nutkaModel.showArtist_Result">
+                <ScalarProperty Name="artist_id" ColumnName="artist_id" />
+                <ScalarProperty Name="artist_name" ColumnName="artist_name" />
+                <ScalarProperty Name="artist_date_of_birth" ColumnName="artist_date_of_birth" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="showClients" FunctionName="dobra_nutkaModel.Store.showClients">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="dobra_nutkaModel.showClients_Result">
+                <ScalarProperty Name="client_id" ColumnName="client_id" />
+                <ScalarProperty Name="client_first_name" ColumnName="client_first_name" />
+                <ScalarProperty Name="client_last_name" ColumnName="client_last_name" />
+                <ScalarProperty Name="client_email" ColumnName="client_email" />
+                <ScalarProperty Name="client_date_of_birth" ColumnName="client_date_of_birth" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="showGenres" FunctionName="dobra_nutkaModel.Store.showGenres">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="dobra_nutkaModel.showGenres_Result">
+                <ScalarProperty Name="genre_id" ColumnName="genre_id" />
+                <ScalarProperty Name="genre_name" ColumnName="genre_name" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="showLocations" FunctionName="dobra_nutkaModel.Store.showLocations">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="dobra_nutkaModel.showLocations_Result">
+                <ScalarProperty Name="location_id" ColumnName="location_id" />
+                <ScalarProperty Name="city" ColumnName="city" />
+                <ScalarProperty Name="address_id" ColumnName="address_id" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="showOrder" FunctionName="dobra_nutkaModel.Store.showOrder">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="dobra_nutkaModel.showOrder_Result">
+                <ScalarProperty Name="order_id" ColumnName="order_id" />
+                <ScalarProperty Name="client_id" ColumnName="client_id" />
+                <ScalarProperty Name="album_id" ColumnName="album_id" />
+                <ScalarProperty Name="employee_id" ColumnName="employee_id" />
+                <ScalarProperty Name="location_id" ColumnName="location_id" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="showPositions" FunctionName="dobra_nutkaModel.Store.showPositions">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="dobra_nutkaModel.showPositions_Result">
+                <ScalarProperty Name="position_id" ColumnName="position_id" />
+                <ScalarProperty Name="position_name" ColumnName="position_name" />
+                <ScalarProperty Name="salary" ColumnName="salary" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="uptadeMusicRecord" FunctionName="dobra_nutkaModel.Store.uptadeMusicRecord" />
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
