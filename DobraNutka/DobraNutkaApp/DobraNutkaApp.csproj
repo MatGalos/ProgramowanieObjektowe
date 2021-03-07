@@ -169,6 +169,23 @@
       <DependentUpon>Model1.edmx</DependentUpon>
     </None>
     <None Include="packages.config" />
+    <None Include="Properties\DataSources\Adresses.datasource" />
+    <None Include="Properties\DataSources\Albums.datasource" />
+    <None Include="Properties\DataSources\Artists.datasource" />
+    <None Include="Properties\DataSources\Clients.datasource" />
+    <None Include="Properties\DataSources\Employees.datasource" />
+    <None Include="Properties\DataSources\Formats.datasource" />
+    <None Include="Properties\DataSources\Genres.datasource" />
+    <None Include="Properties\DataSources\Locations.datasource" />
+    <None Include="Properties\DataSources\Orders.datasource" />
+    <None Include="Properties\DataSources\Positions.datasource" />
+    <None Include="Properties\DataSources\retMusicRecord_Result.datasource" />
+    <None Include="Properties\DataSources\showArtist_Result.datasource" />
+    <None Include="Properties\DataSources\showClients_Result.datasource" />
+    <None Include="Properties\DataSources\showGenres_Result.datasource" />
+    <None Include="Properties\DataSources\showLocations_Result.datasource" />
+    <None Include="Properties\DataSources\showOrder_Result.datasource" />
+    <None Include="Properties\DataSources\showPositions_Result.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

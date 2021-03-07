@@ -24,5 +24,19 @@ namespace DobraNutkaApp
         {
             InitializeComponent();
         }
+
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+
+            System.Windows.Data.CollectionViewSource ordersViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("ordersViewSource")));
+            // Load data by setting the CollectionViewSource.Source property:
+            // ordersViewSource.Source = [generic data source]
+            System.Windows.Data.CollectionViewSource artistsViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("artistsViewSource")));
+            // Load data by setting the CollectionViewSource.Source property:
+            // artistsViewSource.Source = [generic data source]
+            System.Windows.Data.CollectionViewSource showClients_ResultViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("showClients_ResultViewSource")));
+            // Load data by setting the CollectionViewSource.Source property:
+            // showClients_ResultViewSource.Source = [generic data source]
+        }
     }
 }

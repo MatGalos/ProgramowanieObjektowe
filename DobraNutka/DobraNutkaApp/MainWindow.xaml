@@ -5,8 +5,17 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:DobraNutkaApp"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
-        
+        Title="MainWindow" Height="600" Width="800" Loaded="Window_Loaded">
+    <Window.Resources>
+        <CollectionViewSource x:Key="ordersViewSource" d:DesignSource="{d:DesignInstance {x:Type local:Orders}, CreateList=True}"/>
+        <CollectionViewSource x:Key="artistsViewSource" d:DesignSource="{d:DesignInstance {x:Type local:Artists}, CreateList=True}"/>
+        <CollectionViewSource x:Key="showClients_ResultViewSource" d:DesignSource="{d:DesignInstance {x:Type local:showClients_Result}, CreateList=True}"/>
+    </Window.Resources>
+    <Grid DataContext="{StaticResource ordersViewSource}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
     </Grid>
 </Window>
